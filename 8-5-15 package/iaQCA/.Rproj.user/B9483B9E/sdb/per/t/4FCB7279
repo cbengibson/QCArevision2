@@ -1,0 +1,17 @@
+{
+    "contents" : "\\name{rallies}\n\\docType{data}\n\\alias{rallies}\n\\title{Tea Party Rallies in Florida Counties}\n\\description{\nThis data set gives Census, voting, religion, and Tea Party organization and rallies for 67 counties in Florida.\n}\n\\usage{rallies}\n\\format{A matrix containing 67 observations and 13 variables.}\n\\source{Subset of data created by Rory McVeigh, Kraig Beyerlein, Burrel Vann Jr., and Priyamvada Trivedi}\n\\references{\nMcVeigh, Rory, Kraig Beyerlein, Burrel Vann Jr., and Priyamvada Trivedi. ``Educational Segregation, Tea Party Organizations, and Battles over Distributive Justice.'' \\emph{American Sociological Review 79}: 630-652.\n}\n\\keyword{datasets}",
+    "created" : 1438812622993.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "611524126",
+    "id" : "4FCB7279",
+    "lastKnownWriteTime" : 1438812694,
+    "path" : "~/Desktop/package/iaQCA/man/rallies.Rd",
+    "project_path" : "man/rallies.Rd",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_doc"
+}

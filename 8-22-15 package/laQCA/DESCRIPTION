@@ -1,0 +1,9 @@
+Package: laQCA
+Title: The Lieberson Robustness Assessment for Qualitative Comparative Analysis
+Version: 0.1.0.0
+Author: C. Ben Gibson, Burrel Vann Jr
+Maintainer: C. Ben Gibson <cbengibson@uci.edu>
+Description: This is a package to test the robustness of the QCA method, or a user's QCA solutions, to randomness. LaQCA is also packaged with the LrQCA function, which provides recommendations for improving QCA solutions to reach typical significance levels.
+Depends: R (>= 3.1.1), QCA
+License: GPL-2
+LazyData: true

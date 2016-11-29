@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Long Lined Cover Letter
+% LaTeX Template
+% Version 1.0 (1/6/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Matthew J. Miller
+% http://www.matthewjmiller.net/howtos/customized-cover-letter-scripts/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,stdletter,dateno,sigleft]{newlfm} % Extra options: 'sigleft' for a left-aligned signature, 'stdletternofrom' to remove the from address, 'letterpaper' for US letter paper - consult the newlfm class manual for more options
+
+\usepackage{charter} % Use the Charter font for the document text
+
+%\newsavebox{\Luiuc}\sbox{\Luiuc}{\parbox[b]{1.75in}{\vspace{0.5in}
+%\includegraphics[width=1.2\linewidth]{logo.png}}} % Company/institution logo at the top left of the page
+%\makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
+
+\newlfmP{sigsize=0pt} % Slightly decrease the height of the signature field
+\newlfmP{addrfromphone} % Print a phone number under the sender's address
+\newlfmP{addrfromemail} % Print an email address under the sender's address
+\PhrPhone{Phone} % Customize the "Telephone" text
+\PhrEmail{Email} % Customize the "E-mail" text
+
+\lthUiuc % Print the company/institution logo
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\namefrom{C. Ben Gibson} % Name
+
+\addrfrom{
+\today\\[12pt] % Date
+4100 Calit2 Building \\ % Address
+UCI, California, 92617
+}
+
+\phonefrom{(251) 510-0864} % Phone number
+
+\emailfrom{cbgibson@uci.edu} % Email address
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING/CLOSING
+%----------------------------------------------------------------------------------------
+
+\greetto{Dear Editors:} % Greeting text
+\closeline{Sincerely,} % Closing text
+
+\nameto{Tim Futing Liao} % Addressee of the letter above the to address
+
+\addrto{
+\emph{Sociological Methodology} \\ % To address
+University of Illinois \\
+%123 Pleasant Lane \\
+%City, State 12345
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{newlfm}
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+Attached, please find a submission to \emph{Sociological Methodology} entitled \emph{The Irvine Assessment for Qualitative Comparative Analysis}. The paper first generally assesses the robustness of Qualitative Comparative Analysis (QCA) to random data; it then systematically tests the ability of existing QCA robustness assessments to protect against randomness; finally, it proposes a new method of determining whether a QCA result is due to random chance, with a similar interpretation to a p-value. We find that existing QCA checks greatly vary in effectiveness given the structure of data, and our method allows the researcher to use a principled way to determine whether the checks are indeed effective, and can provide threshold recommendations for these checks to researchers. 
+
+We believe this to be a good fit for \emph{Sociological Methodology} due both to the fundamental assessment of QCA generally, and a principled methodological approach to determine its robustness.  Thank you for your time and consideration.
+
+Complete contact information for the corresponding author is below: 
+
+\setlength\parindent{24pt}
+\indent C. Ben Gibson \\ 
+\indent Department of Sociology \\ 
+\indent University of California, Irvine \\
+\indent 4100 Calit2 Building\\
+\indent UCI, California, 92617\\
+\indent Phone: (251) 510-0864 (cell)\\
+\indent Email: cbgibson@uci.edu\\
+
+%----------------------------------------------------------------------------------------
+
+\end{newlfm}
+\end{document}

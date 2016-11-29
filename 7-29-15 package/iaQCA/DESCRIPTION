@@ -1,0 +1,9 @@
+Package: iaQCA
+Title: The Irvine Robustness Assessment for Qualitative Comparative Analysis
+Version: 0.5.0.0
+Author: C. Ben Gibson, Burrel Vann Jr
+Maintainer: C. Ben Gibson <cbengibson@gmail.com>
+Description: This is a package to test the robustness of the QCA method, or a user's QCA solutions, to randomness. iaQCA is also packaged with the irQCA function, which provides recommendations for improving QCA solutions to reach typical significance levels.
+Depends: R (>= 3.1.1), QCA, bootstrap
+License: GPL-2
+LazyData: true

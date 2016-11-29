@@ -1,0 +1,17 @@
+{
+    "contents" : "#' configuration table\n#' \n#' Internal function; calculates via logistic regression the output of Irvine Recommendation\n#' @param data name of the model object; the table of solutions for an application of QCA. Default set to \\code{data}.\n#' @param ncut configurational n levels for inclusion. Default set to \\code{ncut=4}\n#' @return The output of the Irvine Recommendation\n#' #' @export\nconf.table<-function(data, ncut=4){\n#logistic regression predicting probability of returning a spurious relationship\n  if (length(ncut)==1){suppressWarnings(modp<-glm(OUT ~ CTH + CPI, family=\"binomial\", data=data))}\n  if (length(ncut)>2){suppressWarnings(modp<-glm(OUT ~ CTH + CNTH + CPI, family=\"binomial\", data=data))}\n  \n  \ndata$pred<-predict(modp,data, type=\"response\")\n\ndata<- cbind(data, predict(modp, newdata = data, type = \"link\", se = TRUE))\n\ndata$UL<-plogis(data$fit - (1.96 * data$se.fit))\ndata$LL<-plogis(data$fit + (1.96 * data$se.fit))\n                                    \n\ndf<-data.frame(p=c(\"p < .10\",\"\",\"p < .05\",\"\",\"p < .01\",\"\",\"p < .001\",\"\"),pc=rep(c(\"parsimonious\",\"complex\"),4),lower.incl.cut=rep(0,8),fitted.incl.cut=rep(0,8),\n               upper.incl.cut=rep(0,8))\noutput<-list(df)[rep(1L, times=length(ncut))]\n\nnames(output)<-paste(\"ncut=\",ncut,sep=\"\")\n\nplevels<-c(.10,.05,.01,.001,-Inf)\n# & data$pred > plevels[(i +1)]]\n\nfor (q in 1:length(ncut)){\n  j<-0\nfor (i in 1:4){\n\nj<-j+1\noutput[[q]]$fitted.incl.cut[j]<-suppressWarnings(min(data$CTH[data$CPI== 0 & data$CNTH == ncut[q] & data$pred < plevels[i]],na.rm=T))\noutput[[q]]$upper.incl.cut[j]<-suppressWarnings(min(data$CTH[data$CPI== 0 & data$CNTH == ncut[q] & data$LL < plevels[i]],na.rm=T))\noutput[[q]]$lower.incl.cut[j]<-suppressWarnings(min(data$CTH[data$CPI== 0 & data$CNTH == ncut[q] & data$UL < plevels[i]],na.rm=T))\n\nj<-j+1\n\noutput[[q]]$fitted.incl.cut[j]<-suppressWarnings(min(data$CTH[data$CPI== 1 & data$CNTH == ncut[q] & data$pred < plevels[i]],na.rm=T))\noutput[[q]]$upper.incl.cut[j]<-suppressWarnings(min(data$CTH[data$CPI== 1 & data$CNTH == ncut[q] & data$LL < plevels[i]],na.rm=T))\noutput[[q]]$lower.incl.cut[j]<-suppressWarnings(min(data$CTH[data$CPI== 1 & data$CNTH == ncut[q] & data$UL < plevels[i]],na.rm=T))\n\n}\n\noutput[[q]][,3][output[[q]][,3] == Inf]<-NA\n\noutput[[q]]$fitted.incl.cut[output[[q]]$fitted.incl.cut == Inf] <- NA\noutput[[q]]$lower.incl.cut[output[[q]]$lower.incl.cut == Inf] <- NA\noutput[[q]]$upper.incl.cut[output[[q]]$upper.incl.cut == Inf] <- NA\n\n}\n\nreturn(output)\n}",
+    "created" : 1438811036231.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2433848819",
+    "id" : "32452B91",
+    "lastKnownWriteTime" : 1438809575,
+    "path" : "~/Desktop/package/iaQCA/R/configuration.table.R",
+    "project_path" : "R/configuration.table.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

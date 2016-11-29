@@ -1,0 +1,9 @@
+Package: laQCA
+Type: Package
+Title: Lieberson Assessment for QCA
+Version: 1.0
+Date: 2014-06-16
+Author: Ben Gibson
+Maintainer: Ben Gibson <cbgibson@uci.edu>
+Description: Calculates threshold recommendations for Ragin's Qualitative Comparative Analysis (QCA) to ensure results returned are not due to random data. 
+License: GPL-2
