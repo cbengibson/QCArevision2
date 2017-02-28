@@ -1,0 +1,3 @@
+1) respond to reviewer 2
+2) edit regression analysis
+3) moderate language about strength of qca in the paper

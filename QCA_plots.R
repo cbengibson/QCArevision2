@@ -29,16 +29,19 @@
   
   #df<-df[sam,]
   #mod2<-glm(OUT~NTH+nvar+dvdist, data=df, family="binomial")
-  #mod1<-glm(OUT~CTH+CNTH+CPI+NTH+nvar+dvdist, data=df, family="binomial")
+  mod1<-glm(OUT~CTH+CNTH+CPI+NTH+nvar+dvdist, data=df, family="binomial")
   mod<-glm(OUT~(CTH+CNTH+CPI+NTH+nvar+dvdist)*(CTH+CNTH+CPI+NTH+nvar+dvdist), data=df, family="binomial")
   #dist+ *CTH+dvdist*CNTH+ nvar*CTH + nvar*CNTH + NTH*CTH + NTH*CNTH
 
-  mod<-stepAIC(mod)
-  summary(mod1)
+  mod1<-stepAIC(mod1)
+  save(list=ls(),file="QCA_plots_data.Rdata")
+  summary(mod)
   xtable(mod, digits=2)
   df$pred<-plogis(predict(mod, newdata = df , type = "link", se=T)[[1]])
   #lines(plogis(pred$fit + (2*pred$se.fit)), type="l", col=colors[i],lwd=6, lty=3) #confidence interval
   #lines(plogis(pred$fit - (2*pred$se.fit)), type="l", col=colors[i],lwd=6, lty=3)
+  
+  
   
 
   #df$pred[df$dvdist==.5 & df$CNTH==6 & df$CTH==.9]
@@ -219,6 +222,24 @@ dev.off()
   printme<-as.data.frame(cbind(intnames,c(paste(round(xt1[[1]],digits=2),"(",round(xt1[[2]],digits=2),")","***",sep=""),rep(NA,15)),paste(round(xt2[[1]],digits=2),"(",round(xt2[[2]],digits=2),")","***",sep="")))
   colnames(printme)<-c("Variable","Model 1","Model 2")
   print(xtable(printme),include.rownames=FALSE)
+  
+  
+  df$pred[df$CTH==1 & df$CNTH==3 & df$CPI == 0 & df$NTH==20 & df$nvar==5 & df$dvdist==.7]
+  df$pred[df$CTH==1 & df$CNTH==3 & df$CPI == 0 & df$NTH==20 & df$nvar==5 & df$dvdist==.5]
+  df$pred[df$CTH==1 & df$CNTH==3 & df$CPI == 0 & df$NTH==20 & df$nvar==5 & df$dvdist==.5][1]
+  
+    idtypes=data.frame("Consistency Score"=1,"Configurational N Threshold"=3,"N"=20,"Number of Variables"=5,"Dependent Variable Dist."=.5,"Predicted p"=  df$pred[df$CTH==1 & df$CNTH==3 & df$CPI == 0 & df$NTH==20 & df$nvar==5 & df$dvdist==.5][1])
+    combs<-expand.grid(c(0.8,.9,1),CNTH=2:5,seq(10,30,10),3:5,seq(.1,.9,.4))
+    combs$Predicted.p<-NA
+    names(combs)<-names(idtypes)
+    for (i in 1:dim(combs)[1]){
+      combs$Predicted.p[i]<-c(df$pred[df$CTH==combs$Consistency.Score[i] & df$CNTH==combs$Configurational.N.Threshold[i] & df$CPI == 0 & df$NTH==combs$N[i] & df$nvar==combs$Number.of.Variables[i] & df$dvdist==combs$Dependent.Variable.Dist.[i]][1])
+    }
+    
+  combs[126,]
+  print(xtable(combs),include.rownames=F)
+  
+  idtypes[2,]<-c(  df$pred[df$CTH==1 & df$CNTH==3 & df$CPI == 0 & df$NTH==20 & df$nvar==5 & df$dvdist==.5][1])
   
   
   

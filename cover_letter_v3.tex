@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Long Lined Cover Letter
+% LaTeX Template
+% Version 1.0 (1/6/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Matthew J. Miller
+% http://www.matthewjmiller.net/howtos/customized-cover-letter-scripts/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt,stdletter,dateno,sigleft]{newlfm} % Extra options: 'sigleft' for a left-aligned signature, 'stdletternofrom' to remove the from address, 'letterpaper' for US letter paper - consult the newlfm class manual for more options
+\usepackage{csquotes}
+\usepackage{charter} % Use the Charter font for the document text
+\usepackage{setspace}
+%\linespread{1.5}
+%\newsavebox{\Luiuc}\sbox{\Luiuc}{\parbox[b]{1.75in}{\vspace{0.5in}
+%\includegraphics[width=1.2\linewidth]{logo.png}}} % Company/institution logo at the top left of the page
+%\makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
+
+\newlfmP{sigsize=0pt} % Slightly decrease the height of the signature field
+%\newlfmP{addrfromphone} % Print a phone number under the sender's address
+%\newlfmP{addrfromemail} % Print an email address under the sender's address
+%\PhrPhone{Phone} % Customize the "Telephone" text
+%\PhrEmail{Email} % Customize the "E-mail" text
+
+%\lthUiuc % Print the company/institution logo
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+%\namefrom{C. Ben Gibson} % Name
+
+\addrfrom{
+\today\\[12pt] % Date
+%4100 Calit2 Building \\ % Address
+%UCI, California, 92617
+}
+
+%\phonefrom{(251) 510-0864} % Phone number
+
+%\emailfrom{cbgibson@uci.edu} % Email address
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING/CLOSING
+%----------------------------------------------------------------------------------------
+
+\greetto{Dear Editors:} % Greeting text
+\closeline{Sincerely, \newline Authors} % Closing text
+
+\nameto{Duane F. Alwin} % Addressee of the letter above the to address
+
+\addrto{
+\emph{Sociological Methodology} \\ % To address
+Pennsylvania State University \\
+%123 Pleasant Lane \\
+%City, State 12345
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{newlfm}
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+Please find the responses to reviewers below for submission SMX-15-0022. Please also note that, at %the suggestion of Reviewer 3, we have changed the title of the paper to ``The Bootstrapped Robustness Assessment for Qualitative Comparative Analysis. Due to these changes, we have also changed the name of the package (braQCA) and it's components (baQCA and brQCA).
+
+Thank you. \newline
+
+Reviewer 1: 
+
+Thank you for your continued support of this method. We appreciate your concerns regarding the importance of intermediate solutions and counterfactual expectations compared to complex (and even parsimonious) solutions. In this paper, we employ our method on complex solutions for ease of interpretation for the na{\"i}ve QCA user. Our method, however, \textit{does} allow researchers to consider intermediate solutions, as does the package (with a few specifications). 
+
+To demonstrate the applicability of our method to various types of solutions, we have added a footnote to the manuscript to address differences between complex and intermediate solutions in our data, before and after applying the method. In our case, the results for the complex versus an intermediate solution sets are identical. Not only were the cases covered and solutions similar, but so were the assessments of robustness before and after applying the recommended consistency scores minimum number of cases per solution. For example, before applying the robustness assessment, the complex solution for our data exhibit 95\% randomness (which, after applying the recommendations from the method, drops to 9 percent randomness). Running the method on the intermediate solution results in 96\% randomness (which drops to, again, 9\% randomness after applying recommendations from our method). The method and package are built to work with whichever type of solution the researcher specifies. \newline
+
+Reviewer 2: 
+
+We appreciate Reviewer 2's comments. We have been having trouble with the software ourselves, as the reviewer correctly assumes, due to the packages on which ours depends. The package has been updated. We believe this package is more stable than the previous iterations given that the packages it depends on now have no conflicts. We are surprised, however, that the reviewer didn't look into our theoretical justification we wrote as a response, which was the meat of the response (the software was a minor point). \newline
+
+
+Reviewer 3: 
+
+Thank you for the constructive comments. The theory of QCA relies on intimately linked causal configurations that do not operate independently -- in fact, each result consists of a collection of necessarily-linked causal conditions, separated by a logical ``OR''. This makes the second null hypothesis test (while completely reasonable to frequentists like us...) nonsensical within this paradigm. 
+
+The first hypothesis test would be difficult to do without substantial extension of the method, and is ultimately beyond our scope. An additional paper could look at out-of-sample prediction of causal configurations, such as splitting the data, simulating from the predicted causal configurations, and seeing if it matches data not included in the original sample. But, this is ultimately done with sensitivity analysis -- one of QCA's great weaknesses is its utter reliance on humans to make sense of the results, and it can taint the final analysis. The test itself determines whether it will return an answer at all, not which answers it will: it's certainly not solving every problem of QCA, but we believe that it improves substantially upon the former, ad-hoc method. 
+
+In regards to power analysis, this is a good point we had considered and mentioned in the paper, though using less elegant language. One of the many things we disagree with about the QCA founder(s) is the attitude towards data: they intend to include every case with relevance, and thus power is of no object: not enough cases observed that have been drawn from a configuration means that the configuration simply does not predict the outcome. So, that's one perspective on one part of power. 
+
+We still need to deal with those cases excluded from QCA that are removed from increasing configurational N. We have included in the software that lists which configurations that are excluded in the final analysis due to a lack of cases, along with their configurational n thresholds. We have warned against using this method as a strict p-value type of threshold, with this exact consideration in mind. Ultimately, it will require an intimate knowledge of the cases analyzed if very few configurations hold enough cases to warrant a `robust' result. Thanks for the suggestion and we believe it will be mighty helpful for researchers wondering about which configurations they might miss in the context of improving robustness. \newline
+
+%\setlength\parindent{24pt}
+%\indent C. Ben Gibson \\ 
+%\indent Department of Sociology \\ 
+%\indent University of California, Irvine \\
+%\indent 4100 Calit2 Building\\
+%\indent UCI, California, 92617\\
+%\indent Phone: (251) 510-0864 (cell)\\
+%\indent Email: cbgibson@uci.edu\\
+
+%----------------------------------------------------------------------------------------
+
+\end{newlfm}
+\end{document}
