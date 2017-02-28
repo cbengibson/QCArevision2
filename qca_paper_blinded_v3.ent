@@ -23,9 +23,7 @@ package
 braQCA
 \@endanenote 
 \@doanenote {2}
-macro:->\textcolor
-{ForestGreen}
-{Like
+macro:->Like
 in
 any
 QCA
@@ -53,7 +51,7 @@ if
 the
 thresholds
 were
-lowered.}
+lowered.
 \@endanenote 
 \@doanenote {3}
 macro:->In
