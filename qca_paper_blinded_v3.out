@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{`Probabilistic Processes' and QCA}{}% 2
+\BOOKMARK [1][-]{section.3}{Is QCA Robust to Randomness?}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Assessing the Robustness of QCA}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Results}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.2.1}{The Effects of Data Structure and Researcher Choice on Spuriousness}{subsection.3.2}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.2}{The Highly Contingent Effects of Researcher Choice on Spuriousness}{subsection.3.2}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Discussion: QCA Robustness}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{The Bootstrapped Robustness Assessment for QCA}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{baQCA in Practice}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Qualitative Comparative Analysis of Tea Party Rallies in Florida}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Application of the Bootstrapped Robustness Assessment}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.4}{Discussion: baQCA and brQCA Results}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Conclusion and General Recommendations}{}% 14
