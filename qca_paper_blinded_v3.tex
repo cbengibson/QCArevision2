@@ -328,14 +328,14 @@ This section outlines the step-by-step procedure of two methods for determining 
 
 \begin{enumerate}
   \item `Fit' a QCA model with $v$ causal conditions and $n$ number of cases. 
-  \item Simulate 2000 random data sets, $s$, each with $v$ causal conditions and size $n$. We chose 2000 to be the number of simulations, $s$, using convergence diagnostics from \cite{gelman_and_rubin_1992}. Each causal condition and the outcome has the same distributions as the observed data, respectively. 
+  \item Simulate $s$ random data sets, each with $v$ causal conditions and size $n$. We chose 2000 as the number of simulations, $s$, using convergence diagnostics from \cite{gelman_and_rubin_1992}. Each causal condition and the outcome has the same distributions as the observed data, respectively. 
   \item Apply QCA to all the generated data sets, matching the elements of researcher choice specified in the observed model (configurational N, consistency score, etc.). Record whether each QCA returned a spurious result.  
   \item Take the simple proportion of times the QCA returned a configuration: 
   \begin{center}
   \[
   \frac{R}{s} 
   \]
-  {\it{Where $R$ = the number of times a QCA model returned a result from a randomly generated data set and $s$ = the number of simulations used (2000)}.}
+  {\it{Where $R$ = the number of times a QCA model returned a result from a randomly generated data set and $s$ = the number of simulations used (e.g. 2000)}.}
   \end{center}
   \item We use bootstrapped standard errors for a measure of uncertainty (\citealt{efron_and_tibshirani_1994}). We resample, with replacement, the vector of counts that sum to $R$. We chose 2000 resamples using convergence diagnostics from \citet{gelman_and_rubin_1992}. We then take 95\% quantiles of  $\frac{R}{s}$ for our confidence interval.
 \end{enumerate}
@@ -346,14 +346,14 @@ The resulting scalar, and its interval, is the 95\% confidence interval of the p
 A useful, related tool is the Bootstrapped Recommendation (brQCA) of a consistency score/configurational N threshold given the data, without having fit a QCA model at all. To achieve this recommendation, we follow a similar trajectory: 
 
 \begin{enumerate}
-  \item Simulate 2000 random data sets, $s$, each with $v$ causal conditions and size $n$. Each causal condition and the outcome has the same distributions as the observed data, respectively. Again, we chose 2000 simulations based on \cite{gelman_and_rubin_1992} convergence diagnostics. 
+  \item Simulate $s$ random data sets, each with $v$ causal conditions and size $n$. Each causal condition and the outcome has the same distributions as the observed data, respectively. Again, we chose 2000 simulations based on \cite{gelman_and_rubin_1992} convergence diagnostics. 
   \item Apply QCA to all the generated data sets, matching systematically varying parameters of researcher choice (configurational N, consistency score, etc.). Record whether each QCA returned a spurious result. 
   \item We apply a logistic regression model to the results, using the configurational N and consistency score thresholds as predictors.
   \item We use this model to provide fitted values, calculating the minimum consistency score needed at every configurational N threshold to achieve a desired ``level of confidence.'' 
   \item We use the standard errors provided in the regression model to provide a confidence interval around each recommendation.
 \end{enumerate}
 
-n practice, this method functionally eliminates the combinations of variables that do not have enough `power' to be included in the final analysis. For example, it will eliminate from consideration the combinations of variables that contain fewer than $n$ cases, which  is standard procedure in QCA truth table analysis. This method simply provides a principled basis for which to choose those thresholds.  \footnote{Like in any QCA analysis, researchers should take care to observe which cases are being eliminated, and consider how this would change the results if the thresholds were lowered.}
+In practice, this method functionally eliminates the combinations of variables that do not have enough `power' to be included in the final analysis. For example, it will eliminate from consideration the combinations of variables that contain fewer than $n$ cases, which  is standard procedure in QCA truth table analysis. This method simply provides a principled basis for which to choose those thresholds.  \footnote{Like in any QCA analysis, researchers should take care to observe which cases are being eliminated, and consider how this would change the results if the thresholds were lowered.}
 
 
 
